@@ -126,6 +126,24 @@ h6,
     transition: var(--transition-smooth);
 }
 
+@media (min-width: 992px) {
+    .navbar-custom .container {
+        flex-wrap: nowrap;
+    }
+
+    .navbar-custom .navbar-collapse {
+        flex-wrap: nowrap;
+    }
+
+    .navbar-custom .navbar-nav {
+        flex-wrap: nowrap;
+    }
+
+    .navbar-custom .nav-link {
+        white-space: nowrap;
+    }
+}
+
 .nav-link::after {
     content: '';
     position: absolute;
@@ -140,6 +158,93 @@ h6,
 .nav-link:hover::after,
 .nav-link.active::after {
     width: 100%;
+}
+
+.nav-utility-btn {
+    width: 56px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 14px;
+    border: 2px solid rgba(45, 31, 53, 0.35);
+    background: rgba(255, 255, 255, 0.92);
+    color: #a27862;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
+    line-height: 1;
+    transition: var(--transition-smooth);
+}
+
+.nav-utility-btn i {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.nav-utility-btn:hover,
+.nav-utility-btn:focus-visible {
+    background: #ffffff;
+    color: #7f5d4d;
+    border-color: rgba(45, 31, 53, 0.55);
+}
+
+.nav-utility-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(255, 79, 163, 0.2);
+}
+
+/* Brand Logo (Vector/Text, no image asset) */
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    font-size: 1.95rem;
+    line-height: 1;
+    letter-spacing: 0.2px;
+}
+
+.brand-logo-icon {
+    width: 1.38em;
+    height: 1.38em;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-gradient);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(255, 79, 163, 0.35);
+}
+
+.brand-logo-icon i {
+    font-size: 0.68em;
+    line-height: 1;
+}
+
+.brand-logo-text {
+    display: inline-flex;
+    align-items: baseline;
+}
+
+.brand-logo-sparkle {
+    color: var(--primary-accent);
+}
+
+.brand-logo-magic {
+    color: var(--secondary-accent);
+}
+
+.login-page .brand-logo,
+.signup-page .brand-logo {
+    font-size: 1.9rem;
+}
+
+.navbar-brand .brand-logo {
+    font-size: 1.95rem;
 }
 
 .navbar-brand img {
@@ -170,6 +275,22 @@ h6,
     color: var(--text-secondary);
     margin-bottom: 40px;
     max-width: 600px;
+}
+
+/* Home 1: keep Portfolio text crisp in light mode */
+body:not(.dark-mode) #portfolio h4,
+body:not(.dark-mode) #portfolio p {
+    text-shadow: none;
+    filter: none;
+}
+
+body:not(.dark-mode) #portfolio .card-luxury h4 {
+    color: #2d1f35;
+}
+
+body:not(.dark-mode) #portfolio .card-luxury p {
+    color: #5f556a;
+    opacity: 1;
 }
 
 /* Glow Elements */
@@ -251,10 +372,105 @@ h6,
     .navbar-custom .nav-link {
         color: #fff8f3;
     }
+
+    .navbar-custom .nav-link::after {
+        display: none;
+    }
+
+    .navbar-custom .nav-utility-btn {
+        width: 52px;
+        height: 40px;
+    }
+}
+
+/* Header: use tablet-style navbar layout at 1024 view */
+@media (min-width: 992px) and (max-width: 1024px) {
+    .navbar-custom .container {
+        flex-wrap: wrap;
+    }
+
+    .navbar-expand-lg .navbar-toggler {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+    }
+
+    .navbar-expand-lg .navbar-collapse {
+        display: none !important;
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .navbar-expand-lg .navbar-collapse.show {
+        display: block !important;
+    }
+
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: column;
+    }
+
+    .navbar-custom .navbar-collapse {
+        margin-top: 12px;
+        padding: 14px 16px;
+        background: rgba(20, 15, 28, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .navbar-custom .nav-link {
+        color: #fff8f3;
+    }
+
+    .navbar-custom .nav-link::after {
+        display: none;
+    }
+
+    .navbar-custom .nav-utility-btn {
+        width: 52px;
+        height: 40px;
+    }
+
+    .navbar-custom .navbar-collapse .d-flex {
+        margin-top: 12px !important;
+    }
+
+    .home2-praise-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home2-praise-author {
+        margin-top: auto !important;
+    }
+}
+
+/* Shared tablet alignment for content sections */
+@media (min-width: 768px) and (max-width: 1024px) {
+    body:not(.login-page):not(.signup-page) header .container,
+    body:not(.login-page):not(.signup-page) section .container {
+        padding-left: 24px;
+        padding-right: 24px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body:not(.login-page):not(.signup-page) .section-padding .row {
+        justify-content: center;
+    }
+
+    body:not(.login-page):not(.signup-page) .section-padding .row>div[class*="col-"] {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* About Page: Center Section Content on Mobile/Tablet */
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
     .about-page .section-padding .row>div[class*="col-"] {
         text-align: center;
     }
@@ -265,7 +481,7 @@ h6,
 }
 
 /* Services Page: Center Section Content on Mobile/Tablet */
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
     .services-page .section-padding .row>div[class*="col-"] {
         text-align: center;
     }
@@ -277,13 +493,34 @@ h6,
     .services-page .section-padding .row .d-flex.align-items-center.gap-3 {
         justify-content: center;
     }
+
+    .services-page .services-specialization-list {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .services-page .services-specialization-list li {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start !important;
+        gap: 0.45rem;
+    }
+
+    .services-page .services-specialization-list li i {
+        margin-right: 0 !important;
+        margin-top: 0.18rem;
+        flex-shrink: 0;
+    }
 }
 
 /* Services Page: Fix On-Site Experience Alignment on Tablet */
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .services-page .services-onsite-section .d-flex.align-items-center.gap-3.mb-3 {
-        justify-content: center;
-        width: fit-content;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 420px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -436,6 +673,33 @@ h6,
     color: var(--primary-accent);
 }
 
+@media (max-width: 767.98px) {
+    .login-page .auth-top-actions,
+    .signup-page .auth-top-actions {
+        top: 10px;
+        right: 10px;
+        gap: 0.45rem !important;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        z-index: 1200;
+    }
+
+    .login-page .auth-top-actions .nav-utility-btn,
+    .signup-page .auth-top-actions .nav-utility-btn {
+        width: 42px;
+        height: 34px;
+        border-radius: 10px;
+        font-size: 0.78rem;
+    }
+
+    html[dir="rtl"] .login-page .auth-top-actions,
+    html[dir="rtl"] .signup-page .auth-top-actions {
+        right: auto;
+        left: 10px;
+    }
+}
+
 /* Auth Pages: password visibility toggle */
 .auth-password-wrap {
     position: relative;
@@ -460,4 +724,145 @@ h6,
 
 .auth-password-toggle:hover {
     color: var(--primary-accent);
+}
+
+/* Auth Pages: responsive spacing and scale tuning */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .home2-process-section .home2-process-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .home2-process-section .home2-process-title {
+        min-height: 5.2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .home2-process-section .home2-process-text {
+        min-height: 10rem;
+    }
+
+    .home2-process-section .home2-process-third-col {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #portfolio .portfolio-third-card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home1-services-section .home1-service-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home1-services-section .home1-service-title {
+        min-height: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .home1-services-section .home1-service-text {
+        min-height: 10.5rem;
+    }
+
+    .login-page main,
+    .signup-page main {
+        padding-top: 6.5rem !important;
+        padding-bottom: 5rem !important;
+    }
+
+    .login-page .container,
+    .signup-page .container {
+        max-width: 920px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .login-page .row.justify-content-center>.col-md-5,
+    .signup-page .row.justify-content-center>.col-md-5 {
+        width: min(760px, 100%);
+    }
+
+    .login-page .card-luxury,
+    .signup-page .card-luxury {
+        padding: 2.5rem !important;
+    }
+}
+
+/* Login Page: mobile clarity for remember/forgot row */
+@media (max-width: 767.98px) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    body:not(.login-page):not(.signup-page) header .container,
+    body:not(.login-page):not(.signup-page) section .container {
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body:not(.login-page):not(.signup-page) .section-padding .row>div[class*="col-"] {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .login-page .auth-login-meta {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .login-page .auth-login-meta .form-check-label {
+        white-space: nowrap;
+    }
+
+    .login-page .auth-forgot-link {
+        width: auto;
+        display: inline;
+        white-space: nowrap;
+    }
+}
+
+/* Contact page: social icon hover effect */
+.contact-social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.contact-social-links a:hover,
+.contact-social-links a:focus-visible {
+    transform: translateY(-2px);
+}
+
+/* Footer: hover effects for social icons and footer links */
+footer .d-flex.gap-3 a,
+footer .list-unstyled a {
+    transition: var(--transition-smooth);
+}
+
+footer .d-flex.gap-3 a:hover,
+footer .d-flex.gap-3 a:focus-visible {
+    color: var(--primary-accent) !important;
+    transform: translateY(-2px);
+}
+
+footer .list-unstyled a:hover,
+footer .list-unstyled a:focus-visible {
+    color: var(--primary-accent) !important;
+    opacity: 1 !important;
+    text-decoration: none;
 }

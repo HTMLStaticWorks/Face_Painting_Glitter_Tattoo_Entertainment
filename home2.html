@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Entertainment v2 | SparkleMagic</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
@@ -13,20 +14,29 @@
     <link rel="stylesheet" href="assets/css/dark-mode.css">
     <style>
         .step-number {
-            font-size: 5rem;
-            opacity: 0.1;
+            font-size: 4.5rem;
+            opacity: 0.28;
             position: absolute;
-            top: -20px;
-            left: 20px;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
             font-weight: 800;
-            background: var(--main-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: rgba(139, 92, 246, 0.34);
+            pointer-events: none;
+        }
+
+        body.dark-mode .step-number {
+            color: rgba(255, 255, 255, 0.22);
         }
 
         .reveal-glow {
             transition-delay: calc(var(--delay) * 200ms);
+        }
+
+        body:not(.dark-mode) .celebration-section .glass-effect h5 {
+            color: #2d1f35;
         }
     </style>
 </head>
@@ -39,8 +49,10 @@
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <span class="brand-font fs-3 text-primary-accent fw-bold" style="color: #ff4fa3;">Sparkle<span
-                        style="color: #8b5cf6;">Magic</span></span>
+                <span class="brand-logo" aria-label="SparkleMagic">
+    <span class="brand-logo-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+    <span class="brand-logo-text"><span class="brand-logo-sparkle">Sparkle</span><span class="brand-logo-magic">Magic</span></span>
+</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -56,10 +68,8 @@
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
                 <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
-                    <button id="darkModeToggle" class="btn btn-link text-decoration-none p-0 fs-5"><i
-                            class="bi bi-moon-stars"></i></button>
-                    <button id="rtlToggle" class="btn btn-link text-decoration-none p-0 fs-5"><i
-                            class="bi bi-translate"></i></button>
+                    <button id="darkModeToggle" class="btn nav-utility-btn" type="button" aria-label="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+                    <button id="rtlToggle" class="btn nav-utility-btn" type="button" aria-label="Toggle RTL mode">RTL</button>
                     <a href="login.html"
                         class="btn-outline-premium text-decoration-none ms-2">Login</a>
                 </div>
@@ -76,7 +86,7 @@
                         style="color: #ff4fa3; letter-spacing: 2px;">Premium Artistry v2</span>
                     <h1 class="hero-title fw-bold">Elevating Events with <span class="glow-text">Pure Sparkle</span>
                     </h1>
-                    <p class="hero-subtitle mb-5">We don't just paint—we create high-fashion festival art and editorial
+                    <p class="hero-subtitle mb-5">We don't just paintâ€”we create high-fashion festival art and editorial
                         face transformations for the most exclusive celebrations.</p>
                     <div class="d-flex gap-3">
                         <a href="contact.html" class="btn-premium">Experience Luxury</a>
@@ -97,34 +107,31 @@
     </header>
 
     <!-- SECTION 2: Magic Steps (Process) -->
-    <section id="process" class="section-padding">
+    <section id="process" class="section-padding home2-process-section">
         <div class="container">
             <div class="section-title reveal-glow" style="--delay: 2">
                 <h2>The Magic Process</h2>
                 <p class="text-secondary">How we bring the shimmer to your guest experience.</p>
             </div>
             <div class="row g-5">
-                <div class="col-md-4 reveal-glow" style="--delay: 3">
-                    <div class="card-luxury p-5 position-relative hover-glow">
-                        <span class="step-number brand-font">01</span>
-                        <h3 class="mt-4">Inspiration</h3>
-                        <p class="text-secondary">We consult on your theme to curate custom designs that match your
+                <div class="col-lg-4 col-md-6 reveal-glow" style="--delay: 3">
+                    <div class="card-luxury p-5 position-relative hover-glow home2-process-card">
+                        <h3 class="mt-4 home2-process-title">Inspiration</h3>
+                        <p class="text-secondary home2-process-text">We consult on your theme to curate custom designs that match your
                             aesthetic perfectly.</p>
                     </div>
                 </div>
-                <div class="col-md-4 reveal-glow" style="--delay: 4">
-                    <div class="card-luxury p-5 position-relative hover-glow">
-                        <span class="step-number brand-font">02</span>
-                        <h3 class="mt-4">Transformation</h3>
-                        <p class="text-secondary">Our elite artists use high-speed editorial techniques to minimize
+                <div class="col-lg-4 col-md-6 reveal-glow" style="--delay: 4">
+                    <div class="card-luxury p-5 position-relative hover-glow home2-process-card">
+                        <h3 class="mt-4 home2-process-title">Transformation</h3>
+                        <p class="text-secondary home2-process-text">Our elite artists use high-speed editorial techniques to minimize
                             queues and maximize "Wow".</p>
                     </div>
                 </div>
-                <div class="col-md-4 reveal-glow" style="--delay: 5">
-                    <div class="card-luxury p-5 position-relative hover-glow">
-                        <span class="step-number brand-font">03</span>
-                        <h3 class="mt-4">The Sparkle</h3>
-                        <p class="text-secondary">The final holographic gems and glitter application that turns faces
+                <div class="col-lg-4 col-md-6 reveal-glow home2-process-third-col" style="--delay: 5">
+                    <div class="card-luxury p-5 position-relative hover-glow home2-process-card">
+                        <h3 class="mt-4 home2-process-title">The Sparkle</h3>
+                        <p class="text-secondary home2-process-text">The final holographic gems and glitter application that turns faces
                             into living masterpieces.</p>
                     </div>
                 </div>
@@ -152,6 +159,22 @@
                             </button>
                         </li>
                     </ul>
+                    <p class="text-secondary mb-4">Our creative workflow blends luxury aesthetics with rapid execution,
+                        so every guest receives a polished, camera-ready design without long wait times.</p>
+                    <div class="glass-effect p-4 rounded-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <i class="bi bi-clock-history text-primary-accent fs-4"></i>
+                            <span class="fw-bold">Fast application with premium detailing</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <i class="bi bi-shield-check text-secondary-accent fs-4"></i>
+                            <span class="fw-bold">Skin-safe products for all age groups</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="bi bi-camera2 text-third-accent fs-4"></i>
+                            <span class="fw-bold">Designed to photograph beautifully day and night</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-7" style="--delay: 7">
                     <div class="tab-content glass-effect p-2 rounded-5 overflow-hidden shadow-lg">
@@ -174,19 +197,19 @@
             <h2 class="brand-font mb-5" style="--delay: 8">Client Praise</h2>
             <div class="row g-4 justify-content-center">
                 <div class="col-md-5" style="--delay: 9">
-                    <div class="glass-effect p-5 rounded-4 shadow-sm h-100">
-                        <div class="text-warning mb-3 fs-3">★★★★★</div>
-                        <p class="fst-italic fs-5">"SparkleMagic turned our corporate family day into a high-fashion
+                    <div class="glass-effect p-5 rounded-4 shadow-sm h-100 home2-praise-card d-flex flex-column">
+                        <div class="text-warning mb-3 fs-3"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i></div>
+                        <p class="fst-italic fs-5 mb-0">"SparkleMagic turned our corporate family day into a high-fashion
                             festival experience. Simply incredible!"</p>
-                        <h6 class="fw-bold mt-4">— Director, British Vogue Events</h6>
+                        <h6 class="fw-bold mt-auto pt-4 home2-praise-author">Director, British Vogue Events</h6>
                     </div>
                 </div>
                 <div class="col-md-5" style="--delay: 10">
-                    <div class="glass-effect p-5 rounded-4 shadow-sm h-100">
-                        <div class="text-warning mb-3 fs-3">★★★★★</div>
-                        <p class="fst-italic fs-5">"The artists were professional, fast, and the children (and adults)
+                    <div class="glass-effect p-5 rounded-4 shadow-sm h-100 home2-praise-card d-flex flex-column">
+                        <div class="text-warning mb-3 fs-3"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i></div>
+                        <p class="fst-italic fs-5 mb-0">"The artists were professional, fast, and the children (and adults)
                             were absolutely mesmerized."</p>
-                        <h6 class="fw-bold mt-4">— Sarah J., Luxury Weddings</h6>
+                        <h6 class="fw-bold mt-auto pt-4 home2-praise-author">Sarah J., Luxury Weddings</h6>
                     </div>
                 </div>
             </div>
@@ -194,7 +217,7 @@
     </section>
 
     <!-- SECTION 5: Dynamic Slanted Grid -->
-    <section class="section-padding overflow-hidden" style="background: var(--primary-accent); color: white;">
+    <section class="section-padding overflow-hidden celebration-section" style="background: var(--primary-accent); color: white;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6" style="--delay: 11">
@@ -237,7 +260,10 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-4">
-                    <h3 class="mb-4"><span class="brand-font fs-3 fw-bold" style="color: #ff4fa3;">Sparkle<span style="color: #8b5cf6;">Magic</span></span></h3>
+                    <h3 class="mb-4"><span class="brand-logo" aria-label="SparkleMagic">
+    <span class="brand-logo-icon" aria-hidden="true"><i class="bi bi-stars"></i></span>
+    <span class="brand-logo-text"><span class="brand-logo-sparkle">Sparkle</span><span class="brand-logo-magic">Magic</span></span>
+</span></h3>
                     <p class="text-secondary-light" style="opacity: 0.8;">Creating unforgettable memories with premium
                         face painting and glitter art. Available for premium events across the city.</p>
                     <div class="d-flex gap-3 fs-4 mt-4">
@@ -301,3 +327,5 @@
 </body>
 
 </html>
+
+

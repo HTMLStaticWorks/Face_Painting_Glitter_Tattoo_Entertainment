@@ -40,6 +40,30 @@ body.dark-mode .nav-link {
     color: var(--text-primary);
 }
 
+body.dark-mode .nav-link.active {
+    color: var(--gold-highlight);
+    font-weight: 700;
+}
+
+body.dark-mode .nav-link.active::after {
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-highlight), var(--primary-accent));
+    box-shadow: 0 0 12px rgba(255, 207, 90, 0.45);
+}
+
+body.dark-mode .nav-utility-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 248, 243, 0.35);
+    color: #f4c7ad;
+}
+
+body.dark-mode .nav-utility-btn:hover,
+body.dark-mode .nav-utility-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffe3ce;
+    border-color: rgba(255, 248, 243, 0.55);
+}
+
 body.dark-mode .about-hero {
     background: var(--secondary-bg) !important;
 }
@@ -70,6 +94,19 @@ body.dark-mode .gallery-intricate-section {
 
 body.dark-mode .gallery-bts-section .bi-camera-reels {
     color: var(--secondary-accent) !important;
+}
+
+body.dark-mode .gallery-more-content h4 {
+    color: #2d1f35;
+}
+
+body.dark-mode .gallery-more-content p {
+    color: #5f556a !important;
+}
+
+body.dark-mode .gallery-more-content .bi-stars {
+    color: var(--primary-accent) !important;
+    opacity: 1;
 }
 
 body.dark-mode .pricing-difference-section {
