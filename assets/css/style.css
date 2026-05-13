@@ -285,12 +285,14 @@ body:not(.dark-mode) #portfolio p {
 }
 
 body:not(.dark-mode) #portfolio .card-luxury h4 {
-    color: #2d1f35;
+    color: #2d1f35 !important;
 }
 
 body:not(.dark-mode) #portfolio .card-luxury p {
-    color: #5f556a;
-    opacity: 1;
+    color: #4f455b !important;
+    opacity: 1 !important;
+    filter: none !important;
+    text-shadow: none !important;
 }
 
 /* Glow Elements */
