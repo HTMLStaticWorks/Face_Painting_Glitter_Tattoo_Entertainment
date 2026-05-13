@@ -1,0 +1,463 @@
+/* 
+    Face Painting & Glitter Tattoo Entertainment - Main Styles
+    Design System: Premium Playful Luxury
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@200;300;400;500;600;700&family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Color Palette */
+    --primary-bg: #fff8f3;
+    --secondary-bg: #fff1eb;
+    --card-bg: rgba(255, 255, 255, 0.82);
+    --primary-accent: #ff4fa3;
+    --secondary-accent: #8b5cf6;
+    --third-accent: #14b8a6;
+    --gold-highlight: #ffcf5a;
+    --text-primary: #2d1f35;
+    --text-secondary: #6f6477;
+    --border-color: rgba(255, 79, 163, 0.12);
+    --soft-glow: rgba(255, 79, 163, 0.20);
+
+    /* Gradients */
+    --main-gradient: linear-gradient(135deg, #ff4fa3, #8b5cf6, #14b8a6);
+    --btn-gradient: linear-gradient(135deg, #ff4fa3, #ff7ac6);
+    --glitter-gradient: linear-gradient(135deg, #ffd166, #ff8fab, #c77dff);
+
+    /* Shadows */
+    --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    --glow-shadow: 0 0 20px var(--soft-glow);
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Base Styles */
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-font {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+}
+
+.accent-font {
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* Glassmorphism */
+.glass-effect {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+}
+
+/* Buttons */
+.btn-premium {
+    background: var(--btn-gradient);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px rgba(255, 79, 163, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-premium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 79, 163, 0.4);
+    color: white;
+}
+
+.btn-outline-premium {
+    background: transparent;
+    border: 2px solid var(--primary-accent);
+    color: var(--primary-accent);
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.btn-outline-premium:hover {
+    background: var(--primary-accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Navbar */
+.navbar-custom {
+    padding: 15px 0;
+    transition: var(--transition-smooth);
+    z-index: 1000;
+}
+
+.navbar-custom.scrolled {
+    padding: 10px 0;
+    background: rgba(255, 248, 243, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin: 0 10px;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--btn-gradient);
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-brand img {
+    height: 45px;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    padding: 160px 0 100px;
+    overflow: hidden;
+    background: radial-gradient(circle at 10% 20%, rgba(255, 79, 163, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    background: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+/* Glow Elements */
+.glow-text {
+    text-shadow: 0 0 10px var(--soft-glow);
+}
+
+.card-luxury {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 30px;
+    transition: var(--transition-smooth);
+    height: 100%;
+}
+
+.card-luxury:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary-accent);
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.floating-elem {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Floating Particles Container */
+#particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Sections */
+.section-padding {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* Mobile/Tablet Navbar Menu Panel */
+@media (max-width: 991.98px) {
+    .navbar-custom .navbar-collapse {
+        margin-top: 12px;
+        padding: 14px 16px;
+        background: rgba(20, 15, 28, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .navbar-custom .nav-link {
+        color: #fff8f3;
+    }
+}
+
+/* About Page: Center Section Content on Mobile/Tablet */
+@media (max-width: 991.98px) {
+    .about-page .section-padding .row>div[class*="col-"] {
+        text-align: center;
+    }
+
+    .about-page .section-padding .row .list-unstyled li {
+        justify-content: center;
+    }
+}
+
+/* Services Page: Center Section Content on Mobile/Tablet */
+@media (max-width: 991.98px) {
+    .services-page .section-padding .row>div[class*="col-"] {
+        text-align: center;
+    }
+
+    .services-page .section-padding .row .list-unstyled li {
+        justify-content: center;
+    }
+
+    .services-page .section-padding .row .d-flex.align-items-center.gap-3 {
+        justify-content: center;
+    }
+}
+
+/* Services Page: Fix On-Site Experience Alignment on Tablet */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .services-page .services-onsite-section .d-flex.align-items-center.gap-3.mb-3 {
+        justify-content: center;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .services-page .services-onsite-section .d-flex.align-items-center.gap-3.mb-3>div:last-child {
+        text-align: left;
+    }
+
+    .services-page .services-onsite-section .position-absolute.bottom-0.start-0 {
+        left: 50% !important;
+        transform: translateX(-50%);
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* Mobile First Adjustments */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .hero-section {
+        padding: 120px 0 60px;
+    }
+
+    .section-title h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Home Page Expansion Animations */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.reveal-active.reveal-left,
+.reveal-active.reveal-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.pulse-glow {
+    animation: pulse-glow 3s infinite;
+}
+
+@keyframes pulse-glow {
+    0% {
+        filter: drop-shadow(0 0 5px var(--soft-glow));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px var(--primary-accent));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px var(--soft-glow));
+    }
+}
+
+.hexagon-card {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: var(--card-bg);
+    transition: var(--transition-smooth);
+    color: var(--text-primary);
+}
+
+.hexagon-card:hover {
+    transform: scale(1.05) rotate(2deg);
+    background: var(--main-gradient);
+    color: white;
+}
+
+/* Home 2 Unique Animations */
+.reveal-glow {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(10px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-glow.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.hover-glow {
+    transition: var(--transition-smooth);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px var(--soft-glow);
+    filter: brightness(1.1);
+}
+
+.parallax-container {
+    overflow: hidden;
+}
+
+.parallax-bg {
+    transition: transform 0.1s ease-out;
+}
+
+.split-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(255, 248, 243, 0.7), rgba(255, 248, 243, 0.7)),
+        url('../images/hero.png') no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+/* Auth Pages: Keep social login buttons anchored under the card header */
+.login-page .auth-social-stack,
+.signup-page .auth-social-stack {
+    position: relative;
+    z-index: 2;
+}
+
+.login-page .auth-social-btn,
+.signup-page .auth-social-btn {
+    width: 100%;
+    min-height: 58px;
+    border-radius: 12px;
+}
+
+/* Auth Pages: top-right theme/RTL controls without a full header */
+.auth-top-actions {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    z-index: 1100;
+}
+
+.auth-top-actions .btn-link {
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.auth-top-actions .btn-link:hover {
+    color: var(--primary-accent);
+}
+
+/* Auth Pages: password visibility toggle */
+.auth-password-wrap {
+    position: relative;
+}
+
+.auth-password-wrap .form-control {
+    padding-right: 46px !important;
+}
+
+.auth-password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    inset-inline-end: 12px;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 0;
+    line-height: 1;
+}
+
+.auth-password-toggle:hover {
+    color: var(--primary-accent);
+}
