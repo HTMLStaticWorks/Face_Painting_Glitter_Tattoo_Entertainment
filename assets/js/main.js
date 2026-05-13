@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initRTL();
     initScrollAnimations();
     initPasswordToggles();
+    initBackToTop();
 });
 
 // Navbar Scroll Effect
@@ -154,5 +155,36 @@ function initPasswordToggles() {
             toggle.innerHTML = isPassword ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
             toggle.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
         });
+    });
+}
+
+// Back-to-Top Button (excluded on auth pages)
+function initBackToTop() {
+    if (document.body.classList.contains('login-page') || document.body.classList.contains('signup-page')) return;
+
+    let button = document.getElementById('backToTop');
+    if (!button) {
+        button = document.createElement('button');
+        button.id = 'backToTop';
+        button.className = 'back-to-top';
+        button.type = 'button';
+        button.setAttribute('aria-label', 'Back to top');
+        button.innerHTML = '<i class="bi bi-arrow-up"></i>';
+        document.body.appendChild(button);
+    }
+
+    const toggleVisibility = () => {
+        if (window.scrollY > 260) {
+            button.classList.add('show');
+        } else {
+            button.classList.remove('show');
+        }
+    };
+
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility();
+
+    button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }

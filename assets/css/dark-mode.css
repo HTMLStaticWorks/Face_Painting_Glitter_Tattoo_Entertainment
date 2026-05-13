@@ -20,6 +20,21 @@ body.dark-mode .card-luxury {
     border-color: var(--border-color);
 }
 
+/* Homepage Portfolio: keep card text readable in dark mode */
+body.dark-mode #portfolio .card-luxury h4 {
+    color: #fff8f3 !important;
+    text-shadow: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+body.dark-mode #portfolio .card-luxury p {
+    color: #d8d1df !important;
+    text-shadow: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
 body.dark-mode .auth-social-btn {
     color: var(--text-primary) !important;
 }
