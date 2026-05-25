@@ -791,11 +791,9 @@ body:not(.dark-mode) #portfolio .card-luxury p {
     0% {
         filter: drop-shadow(0 0 5px var(--soft-glow));
     }
-
     50% {
         filter: drop-shadow(0 0 20px var(--primary-accent));
     }
-
     100% {
         filter: drop-shadow(0 0 5px var(--soft-glow));
     }
@@ -806,6 +804,8 @@ body:not(.dark-mode) #portfolio .card-luxury p {
     background: var(--card-bg);
     transition: var(--transition-smooth);
     color: var(--text-primary);
+    height: 100%;
+    justify-content: center;
 }
 
 .hexagon-card:hover {

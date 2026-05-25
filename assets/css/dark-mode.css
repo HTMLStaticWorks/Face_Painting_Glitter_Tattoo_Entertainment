@@ -274,3 +274,8 @@ body.dark-mode .portfolio-heading {
 body.dark-mode .portfolio-subtitle {
     color: var(--text-secondary) !important;
 }
+
+/* Fix hamburger icon visibility in dark mode */
+body.dark-mode .navbar-toggler-icon {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
