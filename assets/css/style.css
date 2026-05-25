@@ -3,7 +3,7 @@
     Design System: Premium Playful Luxury
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@200;300;400;500;600;700&family=Fredoka:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 :root {
     /* Color Palette */
@@ -47,14 +47,51 @@ h2,
 h3,
 h4,
 h5,
-h6,
-.brand-font {
+h6 {
     font-family: 'Baloo 2', cursive;
-    font-weight: 700;
+    font-weight: 500;
 }
 
+.brand-font,
 .accent-font {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1.fw-bold,
+h2.fw-bold,
+h3.fw-bold,
+h4.fw-bold,
+h5.fw-bold,
+h6.fw-bold {
+    font-weight: 550 !important;
+}
+
+p,
+a,
+button,
+.btn,
+input,
+select,
+textarea,
+label,
+.nav-link,
+.form-control,
+.form-label {
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-weight: 400;
+}
+
+p.fw-bold {
+    font-weight: 550 !important;
+}
+
+.hero-subtitle,
+.page-hero-copy,
+.section-title p {
+    font-weight: 500;
 }
 
 /* Glassmorphism */
@@ -72,7 +109,7 @@ h6,
     border: none;
     padding: 12px 30px;
     border-radius: 50px;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: var(--transition-smooth);
@@ -93,7 +130,7 @@ h6,
     color: var(--primary-accent);
     padding: 10px 28px;
     border-radius: 50px;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     transition: var(--transition-smooth);
 }
@@ -171,7 +208,7 @@ h6,
     border: 2px solid rgba(45, 31, 53, 0.35);
     background: rgba(255, 255, 255, 0.92);
     color: #a27862;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
     letter-spacing: 0.2px;
@@ -201,9 +238,9 @@ h6,
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
-    font-family: 'Baloo 2', cursive;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 1.95rem;
+    font-size: 1.65rem;
     line-height: 1;
     letter-spacing: 0.2px;
 }
@@ -240,11 +277,11 @@ h6,
 
 .login-page .brand-logo,
 .signup-page .brand-logo {
-    font-size: 1.9rem;
+    font-size: 1.6rem;
 }
 
 .navbar-brand .brand-logo {
-    font-size: 1.95rem;
+    font-size: 1.65rem;
 }
 
 .navbar-brand img {
@@ -277,6 +314,134 @@ h6,
     max-width: 600px;
 }
 
+/* Enhanced inner-page heroes (About, Services, Gallery, Pricing, Contact) */
+.page-hero-enhanced {
+    position: relative;
+    margin-top: 80px;
+    padding: clamp(5rem, 8vw, 7rem) 0 clamp(3rem, 5vw, 4rem);
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 10% 15%, rgba(255, 79, 163, 0.14), transparent 44%),
+        radial-gradient(circle at 88% 85%, rgba(139, 92, 246, 0.14), transparent 45%),
+        linear-gradient(180deg, rgba(255, 248, 243, 0.92), rgba(255, 241, 235, 0.88));
+    border-bottom: 1px solid rgba(255, 79, 163, 0.15);
+}
+
+.page-hero-enhanced::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    top: -130px;
+    right: -120px;
+    background: rgba(20, 184, 166, 0.1);
+}
+
+.page-hero-enhanced .container {
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-weight: 700;
+    color: #7b3976;
+    background: rgba(255, 79, 163, 0.14);
+    border: 1px solid rgba(255, 79, 163, 0.28);
+}
+
+.page-hero-copy {
+    max-width: 620px;
+}
+
+.page-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+}
+
+.page-hero-kpis {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.page-hero-kpi {
+    min-width: 140px;
+    padding: 0.75rem 1rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(139, 92, 246, 0.14);
+}
+
+.page-hero-kpi strong {
+    display: block;
+    font-size: 1.2rem;
+    color: #5a2f7a;
+}
+
+.page-hero-kpi span {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+}
+
+.page-hero-media {
+    position: relative;
+}
+
+.page-hero-media-main {
+    border-radius: 28px;
+    overflow: hidden;
+    border: 10px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 18px 40px rgba(45, 31, 53, 0.15);
+}
+
+.page-hero-media-main img {
+    width: 100%;
+    min-height: 330px;
+    object-fit: cover;
+}
+
+.page-hero-floating-card {
+    position: absolute;
+    bottom: -20px;
+    left: -16px;
+    max-width: 250px;
+    padding: 0.95rem 1rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 79, 163, 0.2);
+    box-shadow: 0 10px 30px rgba(45, 31, 53, 0.12);
+}
+
+.page-hero-floating-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--text-primary);
+}
+
+@media (max-width: 991.98px) {
+    .page-hero-floating-card {
+        position: static;
+        margin-top: 1rem;
+        max-width: 100%;
+    }
+
+    .page-hero-kpi {
+        min-width: 120px;
+    }
+}
+
 /* Home 1: keep Portfolio text crisp in light mode */
 body:not(.dark-mode) #portfolio h4,
 body:not(.dark-mode) #portfolio p {
@@ -293,6 +458,16 @@ body:not(.dark-mode) #portfolio .card-luxury p {
     opacity: 1 !important;
     filter: none !important;
     text-shadow: none !important;
+}
+
+/* Home 1: Portfolio section heading & subtitle */
+.portfolio-heading {
+    color: #2d1f35;
+}
+
+.portfolio-subtitle {
+    color: #6f6477;
+    font-size: 1.1rem;
 }
 
 /* Glow Elements */
@@ -358,6 +533,19 @@ body:not(.dark-mode) #portfolio .card-luxury p {
 .section-title h2 {
     font-size: 3rem;
     margin-bottom: 15px;
+}
+
+/* Home 1: services section background image and readability tuning */
+.home1-services-section {
+    background:
+        linear-gradient(rgba(255, 248, 243, 0.92), rgba(255, 248, 243, 0.92)),
+        url('../images/festival-setup-main.png') center/cover no-repeat;
+}
+
+/* Home 1: section below services should use a clean readable font */
+.home1-trust-strip .accent-font {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 /* Mobile/Tablet Navbar Menu Panel */
@@ -514,6 +702,28 @@ body:not(.dark-mode) #portfolio .card-luxury p {
         margin-right: 0 !important;
         margin-top: 0.18rem;
         flex-shrink: 0;
+    }
+}
+
+/* Services Page: Fix On-Site Experience Alignment on Tablet */
+@media (min-width: 768px) {
+    .services-page .services-onsite-section .row.align-items-stretch>.reveal-left,
+    .services-page .services-onsite-section .row.align-items-stretch>.reveal-right {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .services-page .services-onsite-section .row.align-items-stretch>.reveal-left>div,
+    .services-page .services-onsite-section .row.align-items-stretch>.reveal-right>div {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .services-page .services-onsite-section .services-onsite-media,
+    .services-page .services-onsite-section .services-onsite-content {
+        height: clamp(500px, 38vw, 620px);
     }
 }
 
@@ -905,3 +1115,4 @@ footer .list-unstyled a:focus-visible {
 .back-to-top:focus-visible {
     filter: brightness(1.05);
 }
+

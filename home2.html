@@ -13,37 +13,170 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
     <style>
-        .step-number {
-            font-size: 4.5rem;
-            opacity: 0.28;
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            text-align: center;
-            font-weight: 800;
-            color: rgba(139, 92, 246, 0.34);
-            pointer-events: none;
+        body.home2-static *,
+        body.home2-static *::before,
+        body.home2-static *::after {
+            animation: none !important;
+            transition: none !important;
         }
 
-        body.dark-mode .step-number {
-            color: rgba(255, 255, 255, 0.22);
+        body.home2-static #particles-container {
+            display: none !important;
         }
 
         .reveal-glow {
-            transition-delay: calc(var(--delay) * 200ms);
+            opacity: 1 !important;
+            transform: none !important;
         }
 
-        body:not(.dark-mode) .celebration-section .glass-effect h5 {
-            color: #2d1f35;
+        .home2-premium-events {
+            background:
+                radial-gradient(circle at 0% 0%, rgba(255, 79, 163, 0.08), transparent 35%),
+                radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.08), transparent 38%);
+        }
+
+        .home2-event-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 79, 163, 0.16);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.dark-mode .home2-event-card {
+            background: linear-gradient(180deg, rgba(45, 31, 53, 0.92), rgba(28, 20, 35, 0.9));
+            border-color: rgba(255, 79, 163, 0.28);
+        }
+
+        .home2-event-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--main-gradient);
+        }
+
+        .home2-event-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .home2-event-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 79, 163, 0.12);
+            color: var(--primary-accent);
+            font-size: 1.2rem;
+        }
+
+        body.dark-mode .home2-event-icon {
+            background: rgba(255, 79, 163, 0.2);
+            color: #ffd9ef;
+        }
+
+        .home2-event-tag {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.22);
+            padding: 0.35rem 0.55rem;
+            border-radius: 999px;
+            line-height: 1;
+        }
+
+        body.dark-mode .home2-event-tag {
+            color: #e4d2ff;
+            background: rgba(139, 92, 246, 0.22);
+            border-color: rgba(139, 92, 246, 0.35);
+        }
+
+        .home2-event-meta {
+            display: inline-block;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            background: rgba(20, 184, 166, 0.11);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            padding: 0.32rem 0.58rem;
+            border-radius: 999px;
+            margin-bottom: 0.85rem;
+        }
+
+        body.dark-mode .home2-event-meta {
+            color: #cdeee9;
+            background: rgba(20, 184, 166, 0.2);
+            border-color: rgba(20, 184, 166, 0.3);
+        }
+
+        .home2-event-card ul {
+            margin: 0;
+            padding-left: 1.1rem;
+        }
+
+        .home2-event-card li {
+            color: var(--text-secondary);
+            margin-bottom: 0.35rem;
+        }
+
+        @media (min-width: 992px) {
+            .home2-premium-events .home2-event-card h3 {
+                min-height: 5.6rem;
+            }
+
+            .home2-premium-events .home2-event-card>p.text-secondary {
+                min-height: 9.2rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .home2-design-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .home2-package-price {
+            font-size: 1.95rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .home2-package-meta {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .home2-flow-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            background: var(--btn-gradient);
+            box-shadow: 0 8px 18px rgba(255, 79, 163, 0.28);
+        }
+
+        .home2-addon-card i {
+            font-size: 1.35rem;
         }
     </style>
 </head>
 
-<body>
-    <!-- Floating Particles -->
-    <div id="particles-container"></div>
+<body class="home2-static">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
@@ -83,14 +216,14 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 reveal-glow" style="--delay: 1">
                     <span class="accent-font fw-bold text-uppercase mb-3 d-block"
-                        style="color: #ff4fa3; letter-spacing: 2px;">Premium Artistry v2</span>
-                    <h1 class="hero-title fw-bold">Elevating Events with <span class="glow-text">Pure Sparkle</span>
+                        style="color: #ff4fa3; letter-spacing: 2px;">Face Painting + Glitter Tattoos</span>
+                    <h1 class="hero-title fw-bold">Entertainment Built for <span class="glow-text">Real Events</span>
                     </h1>
-                    <p class="hero-subtitle mb-5">We don't just paintâ€”we create high-fashion festival art and editorial
-                        face transformations for the most exclusive celebrations.</p>
+                    <p class="hero-subtitle mb-5">From birthday parties to large public festivals, we deliver polished designs,
+                        fast queue handling, and memorable guest experiences for every age group.</p>
                     <div class="d-flex gap-3">
-                        <a href="contact.html" class="btn-premium">Experience Luxury</a>
-                        <a href="#process" class="btn-outline-premium">Our Process</a>
+                        <a href="#event-types" class="btn-premium">Explore Event Types</a>
+                        <a href="#packages" class="btn-outline-premium">View Packages</a>
                     </div>
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0 reveal-glow" style="--delay: 2">
@@ -106,84 +239,123 @@
         </div>
     </header>
 
-    <!-- SECTION 2: Magic Steps (Process) -->
-    <section id="process" class="section-padding home2-process-section">
+    <!-- SECTION 2: Event Types -->
+    <section id="event-types" class="section-padding home2-premium-events">
         <div class="container">
             <div class="section-title reveal-glow" style="--delay: 2">
-                <h2>The Magic Process</h2>
-                <p class="text-secondary">How we bring the shimmer to your guest experience.</p>
+                <h2>Events We Specialize In</h2>
+                <p class="text-secondary">Premium event-ready experiences tailored to guest mix, pace, and venue format.</p>
             </div>
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6 reveal-glow" style="--delay: 3">
-                    <div class="card-luxury p-5 position-relative hover-glow home2-process-card">
-                        <h3 class="mt-4 home2-process-title">Inspiration</h3>
-                        <p class="text-secondary home2-process-text">We consult on your theme to curate custom designs that match your
-                            aesthetic perfectly.</p>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 3">
+                    <div class="card-luxury h-100 home2-event-card">
+                        <div class="home2-event-head">
+                            <span class="home2-event-icon"><i class="bi bi-gift"></i></span>
+                            <span class="home2-event-tag">Most Booked</span>
+                        </div>
+                        <h3 class="mb-3">Birthday Parties</h3>
+                        <span class="home2-event-meta">Ages 3+ | Indoor/Outdoor</span>
+                        <p class="text-secondary">High-energy face painting and glitter looks built for nonstop party flow and photo moments.</p>
+                        <ul>
+                            <li>Princess, superhero, and creature favorites</li>
+                            <li>Queue-smart designs for fast guest turnaround</li>
+                            <li>Optional glitter tattoo mini station</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 reveal-glow" style="--delay: 4">
-                    <div class="card-luxury p-5 position-relative hover-glow home2-process-card">
-                        <h3 class="mt-4 home2-process-title">Transformation</h3>
-                        <p class="text-secondary home2-process-text">Our elite artists use high-speed editorial techniques to minimize
-                            queues and maximize "Wow".</p>
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 4">
+                    <div class="card-luxury h-100 home2-event-card">
+                        <div class="home2-event-head">
+                            <span class="home2-event-icon"><i class="bi bi-building"></i></span>
+                            <span class="home2-event-tag">Brand Ready</span>
+                        </div>
+                        <h3 class="mb-3">Corporate Events</h3>
+                        <span class="home2-event-meta">Launches | Family Days</span>
+                        <p class="text-secondary">Refined entertainment stations that support brand activations and multi-age guest groups.</p>
+                        <ul>
+                            <li>Custom motif boards in brand color palettes</li>
+                            <li>Guest-friendly options for adults and children</li>
+                            <li>Reliable scheduling and clean operational setup</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 reveal-glow home2-process-third-col" style="--delay: 5">
-                    <div class="card-luxury p-5 position-relative hover-glow home2-process-card">
-                        <h3 class="mt-4 home2-process-title">The Sparkle</h3>
-                        <p class="text-secondary home2-process-text">The final holographic gems and glitter application that turns faces
-                            into living masterpieces.</p>
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 5">
+                    <div class="card-luxury h-100 home2-event-card">
+                        <div class="home2-event-head">
+                            <span class="home2-event-icon"><i class="bi bi-backpack3"></i></span>
+                            <span class="home2-event-tag">High Volume</span>
+                        </div>
+                        <h3 class="mb-3">School Events</h3>
+                        <span class="home2-event-meta">Fetes | Reward Days</span>
+                        <p class="text-secondary">Age-appropriate artistry designed for large student groups and structured event windows.</p>
+                        <ul>
+                            <li>Skin-safe cosmetic paints</li>
+                            <li>Fast lane delivery for peak rush periods</li>
+                            <li>Simple, clear design menus for quick choice</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 6">
+                    <div class="card-luxury h-100 home2-event-card">
+                        <div class="home2-event-head">
+                            <span class="home2-event-icon"><i class="bi bi-music-note-beamed"></i></span>
+                            <span class="home2-event-tag">Signature</span>
+                        </div>
+                        <h3 class="mb-3">Festivals &amp; Carnivals</h3>
+                        <span class="home2-event-meta">Day + Night Sessions</span>
+                        <p class="text-secondary">Statement artistry and glitter bars made for long sessions, crowds, and visual impact.</p>
+                        <ul>
+                            <li>UV-reactive face and body highlights</li>
+                            <li>Dedicated glitter tattoo experience bars</li>
+                            <li>Scalable multi-artist staffing model</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: Interactive Showcase Tabs -->
+    <!-- SECTION 3: Popular Designs -->
     <section class="section-padding" style="background: var(--secondary-bg);">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5" style="--delay: 6">
-                    <h2 class="brand-font fs-1 mb-4">Artistry Meets Innovation</h2>
-                    <ul class="nav flex-column gap-3 mb-5">
-                        <li class="nav-item">
-                            <button class="btn btn-outline-premium w-100 text-start p-3 active" data-bs-toggle="tab"
-                                data-bs-target="#face-art">
-                                <i class="bi bi-palette ms-2"></i> Editorial Face Art
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn btn-outline-premium w-100 text-start p-3" data-bs-toggle="tab"
-                                data-bs-target="#glitter-tattoo">
-                                <i class="bi bi-stars ms-2"></i> Holographic Tattoos
-                            </button>
-                        </li>
-                    </ul>
-                    <p class="text-secondary mb-4">Our creative workflow blends luxury aesthetics with rapid execution,
-                        so every guest receives a polished, camera-ready design without long wait times.</p>
-                    <div class="glass-effect p-4 rounded-4">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <i class="bi bi-clock-history text-primary-accent fs-4"></i>
-                            <span class="fw-bold">Fast application with premium detailing</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <i class="bi bi-shield-check text-secondary-accent fs-4"></i>
-                            <span class="fw-bold">Skin-safe products for all age groups</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3">
-                            <i class="bi bi-camera2 text-third-accent fs-4"></i>
-                            <span class="fw-bold">Designed to photograph beautifully day and night</span>
+            <div class="section-title reveal-glow" style="--delay: 7">
+                <h2>Popular Designs</h2>
+                <p class="text-secondary">Top-requested looks that work beautifully on camera and in person.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 8">
+                    <div class="card-luxury p-0 overflow-hidden h-100 home2-design-card">
+                        <img src="assets/images/face-art-princess.png" alt="Princess Face Painting">
+                        <div class="p-4">
+                            <h3 class="mb-2">Princess Sparkle</h3>
+                            <p class="text-secondary mb-0">Soft gradients, gems, and shimmer highlights for birthday party magic.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7" style="--delay: 7">
-                    <div class="tab-content glass-effect p-2 rounded-5 overflow-hidden shadow-lg">
-                        <div class="tab-pane fade show active" id="face-art">
-                            <img src="assets/images/face-art-fairy.png" class="img-fluid rounded-5 w-100" alt="Face Art">
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 9">
+                    <div class="card-luxury p-0 overflow-hidden h-100 home2-design-card">
+                        <img src="assets/images/face-art-superhero.png" alt="Superhero Face Painting">
+                        <div class="p-4">
+                            <h3 class="mb-2">Superhero Power</h3>
+                            <p class="text-secondary mb-0">Bold mask styles and action themes for energetic school and family events.</p>
                         </div>
-                        <div class="tab-pane fade" id="glitter-tattoo">
-                            <img src="assets/images/glitter-tattoo-dragon.png" class="img-fluid rounded-5 w-100"
-                                alt="Glitter Tattoo">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 10">
+                    <div class="card-luxury p-0 overflow-hidden h-100 home2-design-card">
+                        <img src="assets/images/face-art-fairy.png" alt="Festival Face Painting">
+                        <div class="p-4">
+                            <h3 class="mb-2">Festival Glow</h3>
+                            <p class="text-secondary mb-0">Eye-focused linework with neon accents and optional glitter gems.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 11">
+                    <div class="card-luxury p-0 overflow-hidden h-100 home2-design-card">
+                        <img src="assets/images/glitter-tattoo-star.png" alt="Glitter Tattoo Designs">
+                        <div class="p-4">
+                            <h3 class="mb-2">Glitter Tattoo Set</h3>
+                            <p class="text-secondary mb-0">Water-resistant tattoos in premium shimmer shades and stencil collections.</p>
                         </div>
                     </div>
                 </div>
@@ -191,63 +363,124 @@
         </div>
     </section>
 
-    <!-- SECTION 4: High-End Reviews -->
-    <section class="section-padding">
-        <div class="container text-center">
-            <h2 class="brand-font mb-5" style="--delay: 8">Client Praise</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-5" style="--delay: 9">
-                    <div class="glass-effect p-5 rounded-4 shadow-sm h-100 home2-praise-card d-flex flex-column">
-                        <div class="text-warning mb-3 fs-3"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i></div>
-                        <p class="fst-italic fs-5 mb-0">"SparkleMagic turned our corporate family day into a high-fashion
-                            festival experience. Simply incredible!"</p>
-                        <h6 class="fw-bold mt-auto pt-4 home2-praise-author">Director, British Vogue Events</h6>
-                    </div>
-                </div>
-                <div class="col-md-5" style="--delay: 10">
-                    <div class="glass-effect p-5 rounded-4 shadow-sm h-100 home2-praise-card d-flex flex-column">
-                        <div class="text-warning mb-3 fs-3"><i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i></div>
-                        <p class="fst-italic fs-5 mb-0">"The artists were professional, fast, and the children (and adults)
-                            were absolutely mesmerized."</p>
-                        <h6 class="fw-bold mt-auto pt-4 home2-praise-author">Sarah J., Luxury Weddings</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: Dynamic Slanted Grid -->
-    <section class="section-padding overflow-hidden celebration-section" style="background: var(--primary-accent); color: white;">
+    <!-- SECTION 4: Packages -->
+    <section id="packages" class="section-padding">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6" style="--delay: 11">
-                    <h2 class="brand-font fs-1 mb-4" style="color: white;">Every Celebration <br> deserves to shine.
-                    </h2>
-                    <p class="opacity-75 mb-5">From boutique garden parties to massive city festivals, we scale our team
-                        to meet your needs without compromising on elegance.</p>
+            <div class="section-title reveal-glow" style="--delay: 12">
+                <h2>Popular Packages</h2>
+                <p class="text-secondary">Simple package options that can be scaled by guest count and event duration.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 reveal-glow" style="--delay: 13">
+                    <div class="card-luxury h-100 d-flex flex-column">
+                        <h3 class="mb-2">Party Spark</h3>
+                        <p class="home2-package-meta">Best for Birthday Parties</p>
+                        <p class="home2-package-price mb-4">2 Hours</p>
+                        <ul class="text-secondary mb-4">
+                            <li>One artist</li>
+                            <li>Face painting for up to 25 children</li>
+                            <li>Classic design board</li>
+                        </ul>
+                        <a href="contact.html" class="btn-premium mt-auto text-center text-decoration-none">Book Party Spark</a>
+                    </div>
                 </div>
-                <div class="col-md-6" style="--delay: 12">
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="glass-effect p-4 rounded-4 text-center">
-                                <h5>Birthdays</h5>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="glass-effect p-4 rounded-4 text-center">
-                                <h5>Festivals</h5>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="glass-effect p-4 rounded-4 text-center">
-                                <h5>Corporate</h5>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="glass-effect p-4 rounded-4 text-center">
-                                <h5>Weddings</h5>
-                            </div>
-                        </div>
+                <div class="col-lg-4 reveal-glow" style="--delay: 14">
+                    <div class="card-luxury h-100 d-flex flex-column border-2" style="border-color: rgba(255, 79, 163, 0.35) !important;">
+                        <h3 class="mb-2">Event Sparkle Duo</h3>
+                        <p class="home2-package-meta">Best for Corporate + School Events</p>
+                        <p class="home2-package-price mb-4">3 Hours</p>
+                        <ul class="text-secondary mb-4">
+                            <li>Face painting + glitter tattoo station</li>
+                            <li>Two artists for faster throughput</li>
+                            <li>Custom mini design menu</li>
+                        </ul>
+                        <a href="contact.html" class="btn-premium mt-auto text-center text-decoration-none">Book Sparkle Duo</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 reveal-glow" style="--delay: 15">
+                    <div class="card-luxury h-100 d-flex flex-column">
+                        <h3 class="mb-2">Festival Glitter Bar</h3>
+                        <p class="home2-package-meta">Best for Festivals &amp; Carnivals</p>
+                        <p class="home2-package-price mb-4">4+ Hours</p>
+                        <ul class="text-secondary mb-4">
+                            <li>Multi-artist team setup</li>
+                            <li>UV options and premium glitter range</li>
+                            <li>High-volume queue handling</li>
+                        </ul>
+                        <a href="contact.html" class="btn-premium mt-auto text-center text-decoration-none">Book Glitter Bar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Event Day Flow -->
+    <section class="section-padding" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="section-title reveal-glow" style="--delay: 16">
+                <h2>How Event Day Flows</h2>
+                <p class="text-secondary">A clear on-site process that keeps lines moving and guests engaged.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 17">
+                    <div class="card-luxury h-100">
+                        <span class="home2-flow-badge mb-3">1</span>
+                        <h3 class="mb-2">Arrival & Setup</h3>
+                        <p class="text-secondary mb-0">Team arrives early to prepare stations, sanitize tools, and set design displays.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 18">
+                    <div class="card-luxury h-100">
+                        <span class="home2-flow-badge mb-3">2</span>
+                        <h3 class="mb-2">Design Selection</h3>
+                        <p class="text-secondary mb-0">Guests choose from curated boards covering quick classics and statement looks.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 19">
+                    <div class="card-luxury h-100">
+                        <span class="home2-flow-badge mb-3">3</span>
+                        <h3 class="mb-2">Live Service</h3>
+                        <p class="text-secondary mb-0">Artists rotate through queues using speed-focused methods without compromising finish.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal-glow" style="--delay: 20">
+                    <div class="card-luxury h-100">
+                        <span class="home2-flow-badge mb-3">4</span>
+                        <h3 class="mb-2">Final Touches</h3>
+                        <p class="text-secondary mb-0">Glitter, gems, and photo-ready checks are completed before close and reset.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Add-On Experience Stations -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title reveal-glow" style="--delay: 21">
+                <h2>Add-On Experience Stations</h2>
+                <p class="text-secondary">Optional upgrades to make your event feel more premium and interactive.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 reveal-glow" style="--delay: 22">
+                    <div class="card-luxury h-100 home2-addon-card">
+                        <i class="bi bi-gem text-primary-accent mb-3 d-inline-block"></i>
+                        <h3 class="mb-2">Festival Gem Bar</h3>
+                        <p class="text-secondary mb-0">A separate gem station with face jewels and shimmer accents for quick walk-ins.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal-glow" style="--delay: 23">
+                    <div class="card-luxury h-100 home2-addon-card">
+                        <i class="bi bi-lightning-charge text-secondary-accent mb-3 d-inline-block"></i>
+                        <h3 class="mb-2">UV Night Glow Set</h3>
+                        <p class="text-secondary mb-0">UV-reactive paints and glitter tattoos designed for evening parties and stage lighting.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal-glow" style="--delay: 24">
+                    <div class="card-luxury h-100 home2-addon-card">
+                        <i class="bi bi-people text-third-accent mb-3 d-inline-block"></i>
+                        <h3 class="mb-2">Dual Queue Lane</h3>
+                        <p class="text-secondary mb-0">Two active lines with parallel artists to handle high guest volumes efficiently.</p>
                     </div>
                 </div>
             </div>
@@ -312,18 +545,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        // Specific animation trigger for reveal-glow
-        const glowObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-active');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.reveal-glow').forEach(el => glowObserver.observe(el));
-    </script>
 </body>
 
 </html>

@@ -6,9 +6,16 @@ body.dark-mode {
     --primary-bg: #1a141e;
     --secondary-bg: #2d1f35;
     --card-bg: rgba(45, 31, 53, 0.85);
+    --primary-accent: #8b5cf6;
+    --secondary-accent: #4f8dff;
+    --third-accent: #22c9b8;
+    --gold-highlight: #b8c7ff;
     --text-primary: #fff8f3;
     --text-secondary: #c9c1d1;
-    --border-color: rgba(255, 79, 163, 0.2);
+    --border-color: rgba(139, 92, 246, 0.24);
+    --soft-glow: rgba(79, 141, 255, 0.28);
+    --main-gradient: linear-gradient(135deg, #8b5cf6, #4f8dff, #22c9b8);
+    --btn-gradient: linear-gradient(135deg, #8b5cf6, #4f8dff);
 }
 
 body.dark-mode .navbar-custom.scrolled {
@@ -48,7 +55,7 @@ body.dark-mode .auth-social-btn:focus,
 body.dark-mode .auth-social-btn:focus-visible {
     color: var(--text-primary) !important;
     background: rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(255, 79, 163, 0.35) !important;
+    border-color: rgba(79, 141, 255, 0.4) !important;
 }
 
 body.dark-mode .nav-link {
@@ -63,24 +70,60 @@ body.dark-mode .nav-link.active {
 body.dark-mode .nav-link.active::after {
     height: 3px;
     background: linear-gradient(90deg, var(--gold-highlight), var(--primary-accent));
-    box-shadow: 0 0 12px rgba(255, 207, 90, 0.45);
+    box-shadow: 0 0 12px rgba(79, 141, 255, 0.4);
 }
 
 body.dark-mode .nav-utility-btn {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 248, 243, 0.35);
-    color: #f4c7ad;
+    color: #d7dfff;
 }
 
 body.dark-mode .nav-utility-btn:hover,
 body.dark-mode .nav-utility-btn:focus-visible {
     background: rgba(255, 255, 255, 0.15);
-    color: #ffe3ce;
+    color: #eef2ff;
     border-color: rgba(255, 248, 243, 0.55);
 }
 
-body.dark-mode .about-hero {
+body.dark-mode .about-hero:not(.page-hero-enhanced) {
     background: var(--secondary-bg) !important;
+}
+
+body.dark-mode .page-hero-enhanced {
+    background:
+        radial-gradient(circle at 10% 15%, rgba(139, 92, 246, 0.22), transparent 44%),
+        radial-gradient(circle at 88% 85%, rgba(79, 141, 255, 0.22), transparent 45%),
+        linear-gradient(180deg, rgba(45, 31, 53, 0.95), rgba(26, 20, 30, 0.92)) !important;
+    border-bottom-color: rgba(79, 141, 255, 0.35) !important;
+}
+
+body.dark-mode .page-hero-badge {
+    color: #e6e9ff;
+    background: rgba(79, 141, 255, 0.18);
+    border-color: rgba(79, 141, 255, 0.38);
+}
+
+body.dark-mode .page-hero-kpi {
+    background: rgba(26, 20, 30, 0.72);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+body.dark-mode .page-hero-kpi strong {
+    color: #f0ddff;
+}
+
+body.dark-mode .page-hero-media-main {
+    border-color: rgba(255, 248, 243, 0.14);
+}
+
+body.dark-mode .page-hero-floating-card {
+    background: rgba(26, 20, 30, 0.88);
+    border-color: rgba(139, 92, 246, 0.36);
+}
+
+body.dark-mode .page-hero-floating-card p {
+    color: var(--text-primary);
 }
 
 body.dark-mode .about-network-section {
@@ -91,7 +134,15 @@ body.dark-mode .about-network-section h2 {
     color: var(--text-primary);
 }
 
+body.dark-mode .about-faq-section {
+    background: var(--secondary-bg) !important;
+}
+
 body.dark-mode .services-onsite-section {
+    background: var(--secondary-bg) !important;
+}
+
+body.dark-mode .services-events-work-section {
     background: var(--secondary-bg) !important;
 }
 
@@ -130,12 +181,18 @@ body.dark-mode .pricing-difference-section {
 
 body.dark-mode .pricing-how-works .how-works-panel {
     background: linear-gradient(180deg, rgba(45, 31, 53, 0.9), rgba(26, 20, 30, 0.9));
-    border-color: rgba(255, 79, 163, 0.28);
+    border-color: rgba(79, 141, 255, 0.3);
 }
 
 body.dark-mode .pricing-how-works .how-step-card {
     background: rgba(26, 20, 30, 0.82);
     border-color: rgba(139, 92, 246, 0.28);
+}
+
+body.dark-mode .pricing-packages .bg-primary-accent {
+    background: linear-gradient(135deg, #8b5cf6 0%, #4f8dff 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 20px rgba(79, 141, 255, 0.35);
 }
 
 body.dark-mode .pulse-glow i {
@@ -151,4 +208,69 @@ body.dark-mode .form-control {
 
 body.dark-mode .form-control:focus {
     background: rgba(255, 255, 255, 0.08);
+}
+
+/* Auth Pages (Dark Mode): keep inputs light, align radii, and improve label readability */
+body.dark-mode.login-page,
+body.dark-mode.signup-page {
+    --auth-control-radius: 50px;
+}
+
+body.dark-mode.login-page .form-control,
+body.dark-mode.signup-page .form-control {
+    background-color: #e6e8ec !important;
+    color: #2d1f35 !important;
+    border-color: #d3d7de !important;
+    border-radius: var(--auth-control-radius) !important;
+}
+
+body.dark-mode.login-page .form-control:focus,
+body.dark-mode.signup-page .form-control:focus {
+    background-color: #e6e8ec !important;
+    border-color: #c8ccd4 !important;
+}
+
+body.dark-mode.login-page .btn-premium,
+body.dark-mode.signup-page .btn-premium,
+body.dark-mode.login-page .auth-social-btn,
+body.dark-mode.signup-page .auth-social-btn {
+    border-radius: var(--auth-control-radius) !important;
+}
+
+body.dark-mode.login-page .form-label,
+body.dark-mode.signup-page .form-label {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+/* Homepage Dark Mode Fixes */
+body.dark-mode .home1-services-section {
+    background:
+        linear-gradient(rgba(26, 20, 30, 0.92), rgba(26, 20, 30, 0.92)),
+        url('../images/festival-setup-main.png') center/cover no-repeat !important;
+}
+
+body.dark-mode #portfolio,
+body.dark-mode #occasions {
+    background: var(--primary-bg) !important;
+}
+
+body.dark-mode #portfolio .section-title h2,
+body.dark-mode #occasions .section-title h2 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode #portfolio .section-title p,
+body.dark-mode #occasions .section-title p {
+    color: var(--text-secondary) !important;
+}
+
+/* Home 1 Portfolio: section heading & subtitle dark mode */
+body.dark-mode .portfolio-heading {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .portfolio-subtitle {
+    color: var(--text-secondary) !important;
 }
