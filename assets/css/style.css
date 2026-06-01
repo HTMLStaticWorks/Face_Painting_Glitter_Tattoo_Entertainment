@@ -116,12 +116,14 @@ p.fw-bold {
     box-shadow: 0 4px 15px rgba(255, 79, 163, 0.3);
     position: relative;
     overflow: hidden;
+    text-decoration: none !important;
 }
 
 .btn-premium:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(255, 79, 163, 0.4);
     color: white;
+    text-decoration: none !important;
 }
 
 .btn-outline-premium {
@@ -133,12 +135,14 @@ p.fw-bold {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     transition: var(--transition-smooth);
+    text-decoration: none !important;
 }
 
 .btn-outline-premium:hover {
     background: var(--primary-accent);
     color: white;
     transform: translateY(-2px);
+    text-decoration: none !important;
 }
 
 /* Navbar */
@@ -1116,3 +1120,7 @@ footer .list-unstyled a:focus-visible {
     filter: brightness(1.05);
 }
 
+/* Footer Email Input Placeholder */
+footer .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
